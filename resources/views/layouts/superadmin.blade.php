@@ -251,6 +251,283 @@
             flex: 1;
         }
 
+        /* Shared Component Styles for Subpages */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .page-title h2 {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+
+        .page-title p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .alert {
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .alert-success {
+            background-color: #dcfce7;
+            border: 1px solid #86efac;
+            color: #166534;
+        }
+
+        .alert-error {
+            background-color: #fee2e2;
+            border: 1px solid #fca5a5;
+            color: #991b1b;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+
+        .stat-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .stat-info p {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+
+        .stat-info .stat-number {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.03em;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+        }
+
+        .stat-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .icon-green { background-color: #dcfce7; color: #15803d; }
+        .icon-blue { background-color: #dbeafe; color: #2563eb; }
+        .icon-amber { background-color: #fef3c7; color: #d97706; }
+        .icon-rose { background-color: #ffe4e6; color: #e11d48; }
+        .icon-purple { background-color: #f3e8ff; color: #7e22ce; }
+        .icon-slate { background-color: #f1f5f9; color: #475569; }
+
+        .panel {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .panel-header {
+            padding: 18px 22px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .panel-header h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .panel-body {
+            padding: 22px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 12px 14px;
+            color: var(--text-muted);
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-color);
+            background-color: #f8fafc;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        td {
+            padding: 14px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-admin { background-color: #fee2e2; color: #dc2626; }
+        .badge-owner { background-color: #fef3c7; color: #b45309; }
+        .badge-player { background-color: #dcfce7; color: #15803d; }
+        .badge-success { background-color: #dcfce7; color: #15803d; }
+        .badge-warning { background-color: #fef3c7; color: #b45309; }
+        .badge-danger { background-color: #fee2e2; color: #dc2626; }
+        .badge-info { background-color: #dbeafe; color: #1d4ed8; }
+        .badge-neutral { background-color: #f1f5f9; color: #475569; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.15s ease;
+        }
+
+        .btn-sm { padding: 5px 10px; font-size: 0.76rem; border-radius: 6px; }
+        .btn-primary { background-color: var(--primary); color: #ffffff; }
+        .btn-primary:hover { background-color: var(--primary-hover); }
+        .btn-outline { background-color: #ffffff; border-color: var(--border-color); color: var(--text-main); }
+        .btn-outline:hover { background-color: #f8fafc; border-color: #cbd5e1; }
+        .btn-warning { background-color: #f59e0b; color: #ffffff; }
+        .btn-warning:hover { background-color: #d97706; }
+        .btn-danger { background-color: #ef4444; color: #ffffff; }
+        .btn-danger:hover { background-color: #dc2626; }
+
+        .form-control, .form-select {
+            width: 100%;
+            padding: 9px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.86rem;
+            color: var(--text-main);
+            background-color: #ffffff;
+            outline: none;
+        }
+
+        .form-group { margin-bottom: 14px; }
+        .form-label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-main); margin-bottom: 6px; }
+        .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+        .action-group { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+
+        .modal-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.55);
+            z-index: 100;
+            place-items: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .modal-backdrop.show { display: grid; }
+        .modal-card {
+            background: #ffffff;
+            border-radius: 14px;
+            width: 100%;
+            max-width: 520px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+        .modal-header {
+            padding: 18px 22px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .modal-header h3 { font-size: 1.05rem; font-weight: 700; }
+        .modal-close { background: none; border: none; font-size: 1.25rem; color: var(--text-muted); cursor: pointer; }
+        .modal-body { padding: 22px; }
+        .modal-footer {
+            padding: 14px 22px;
+            background-color: #f8fafc;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        .pagination-wrapper {
+            padding: 14px 22px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .pagination-links nav svg { width: 18px; height: 18px; }
+
         /* Responsive */
         @media (max-width: 768px) {
             aside.sidebar {
@@ -281,25 +558,25 @@
             </a>
 
             <div class="menu-heading">Manajemen Platform</div>
-            <a href="#" class="nav-item">
+            <a href="{{ route('superadmin.users.index') }}" class="nav-item {{ request()->routeIs('superadmin.users.*') ? 'active' : '' }}">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                 Kelola Pengguna
             </a>
-            <a href="#" class="nav-item">
+            <a href="{{ route('superadmin.venues.index') }}" class="nav-item {{ request()->routeIs('superadmin.venues.*') ? 'active' : '' }}">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                 Kelola Venue
             </a>
-            <a href="#" class="nav-item">
+            <a href="{{ route('superadmin.sports.index') }}" class="nav-item {{ request()->routeIs('superadmin.sports.*') || request()->routeIs('superadmin.skill-levels.*') ? 'active' : '' }}">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 Kategori Olahraga
             </a>
 
             <div class="menu-heading">Monitoring</div>
-            <a href="#" class="nav-item">
+            <a href="{{ route('superadmin.reports.index') }}" class="nav-item {{ request()->routeIs('superadmin.reports.*') ? 'active' : '' }}">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
                 Laporan & Pelanggaran
             </a>
-            <a href="#" class="nav-item">
+            <a href="{{ route('superadmin.logs.index') }}" class="nav-item {{ request()->routeIs('superadmin.logs.*') ? 'active' : '' }}">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                 Log Aktivitas
             </a>
@@ -336,10 +613,45 @@
         </header>
 
         <main class="content">
+            @if(session('success'))
+                <div class="alert alert-success">
+                    <div><strong>Berhasil!</strong> {{ session('success') }}</div>
+                </div>
+            @endif
+
+            @if(session('error'))
+                <div class="alert alert-error">
+                    <div><strong>Perhatian!</strong> {{ session('error') }}</div>
+                </div>
+            @endif
+
+            @if(isset($errors) && $errors->any())
+                <div class="alert alert-error">
+                    <div>
+                        <strong>Terdapat kesalahan input:</strong>
+                        <ul style="margin-top: 6px; padding-left: 18px;">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            @endif
+
             @yield('content')
         </main>
     </div>
 
+    <script>
+        function openModal(id) {
+            const el = document.getElementById(id);
+            if (el) el.classList.add('show');
+        }
+        function closeModal(id) {
+            const el = document.getElementById(id);
+            if (el) el.classList.remove('show');
+        }
+    </script>
     @stack('scripts')
 </body>
 </html>
