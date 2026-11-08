@@ -51,6 +51,10 @@ class AuthenticatedSessionController extends Controller
             return redirect()->intended(route('superadmin.dashboard'));
         }
 
+        if ($user && $user->role === 'VENUE_OWNER') {
+            return redirect()->intended(route('venueowner.dashboard'));
+        }
+
         return redirect()->intended(route('home'));
     }
 
