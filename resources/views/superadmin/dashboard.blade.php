@@ -290,16 +290,16 @@
             </div>
             <div class="panel-body">
                 <div class="quick-actions">
-                    <a href="#" class="quick-action-btn">
+                    <a href="{{ route('superadmin.sports.index') }}" class="quick-action-btn">
                         <span>+ Tambah Kategori Olahraga</span>
                     </a>
-                    <a href="#" class="quick-action-btn">
+                    <a href="{{ route('superadmin.users.index') }}" class="quick-action-btn">
                         <span>Kelola Pengguna & Pemilik</span>
                     </a>
-                    <a href="#" class="quick-action-btn">
+                    <a href="{{ route('superadmin.venues.index') }}" class="quick-action-btn">
                         <span>Verifikasi Venue Baru</span>
                     </a>
-                    <a href="#" class="quick-action-btn">
+                    <a href="{{ route('superadmin.logs.index') }}" class="quick-action-btn">
                         <span>Lihat Log Aktivitas Sistem</span>
                     </a>
                 </div>
