@@ -48,14 +48,12 @@ Route::middleware('auth')->group(function () {
         ->group(function () {
             Route::get('/dashboard', [SuperAdminDashboardController::class, 'index'])->name('dashboard');
 
-            // 1. CRUD User & Suspend User
             Route::get('/users', [SuperAdminUserController::class, 'index'])->name('users.index');
             Route::post('/users', [SuperAdminUserController::class, 'store'])->name('users.store');
             Route::put('/users/{user}', [SuperAdminUserController::class, 'update'])->name('users.update');
             Route::patch('/users/{user}/toggle-suspend', [SuperAdminUserController::class, 'toggleSuspend'])->name('users.toggle-suspend');
             Route::delete('/users/{user}', [SuperAdminUserController::class, 'destroy'])->name('users.destroy');
 
-            // 2. Kelola Venue & Validasi Mitra
             Route::get('/venues', [SuperAdminVenueController::class, 'index'])->name('venues.index');
             Route::post('/venues', [SuperAdminVenueController::class, 'store'])->name('venues.store');
             Route::put('/venues/{venue}', [SuperAdminVenueController::class, 'update'])->name('venues.update');
@@ -63,7 +61,6 @@ Route::middleware('auth')->group(function () {
             Route::patch('/venues/{venue}/reject', [SuperAdminVenueController::class, 'reject'])->name('venues.reject');
             Route::delete('/venues/{venue}', [SuperAdminVenueController::class, 'destroy'])->name('venues.destroy');
 
-            // 3. CRUD Master Data Olahraga & Daftar Skill Level
             Route::get('/sports', [SuperAdminSportController::class, 'index'])->name('sports.index');
             Route::post('/sports', [SuperAdminSportController::class, 'store'])->name('sports.store');
             Route::put('/sports/{sport}', [SuperAdminSportController::class, 'update'])->name('sports.update');
@@ -74,12 +71,10 @@ Route::middleware('auth')->group(function () {
             Route::put('/skill-levels/{skillLevel}', [SuperAdminSportController::class, 'updateSkillLevel'])->name('skill-levels.update');
             Route::delete('/skill-levels/{skillLevel}', [SuperAdminSportController::class, 'destroySkillLevel'])->name('skill-levels.destroy');
 
-            // 4. Handle Laporan & Feedback
             Route::get('/reports', [SuperAdminReportController::class, 'index'])->name('reports.index');
             Route::patch('/reports/{report}/status', [SuperAdminReportController::class, 'updateStatus'])->name('reports.update-status');
             Route::delete('/reports/{report}', [SuperAdminReportController::class, 'destroy'])->name('reports.destroy');
 
-            // 5. Pantau Statistik & Log Aktivitas
             Route::get('/logs', [SuperAdminActivityLogController::class, 'index'])->name('logs.index');
         });
 

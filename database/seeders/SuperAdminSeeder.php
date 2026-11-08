@@ -14,12 +14,8 @@ use Illuminate\Support\Facades\Hash;
 
 class SuperAdminSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        // 1. Akun Default Super Admin
         $superAdmin = User::query()->firstOrNew([
             'email' => 'admin@example.com',
         ]);
@@ -31,7 +27,6 @@ class SuperAdminSeeder extends Seeder
             'is_active' => true,
         ])->save();
 
-        // 2. Sample Akun Mitra Venue Owner & Pemain
         $venueOwner = User::query()->firstOrNew([
             'email' => 'owner@sporthive.id',
         ]);
@@ -56,7 +51,6 @@ class SuperAdminSeeder extends Seeder
             'is_active' => true,
         ])->save();
 
-        // 3. Master Data Cabang Olahraga & Daftar Skill Level (Sesuai Dokumen Word)
         $sportsList = ['Futsal', 'Badminton', 'Basket', 'Tenis', 'Mini Soccer'];
         $skillLevels = [
             ['name' => 'Beginner', 'level_order' => 1],
@@ -87,7 +81,6 @@ class SuperAdminSeeder extends Seeder
             }
         }
 
-        // 4. Sample Data Venue (1 Approved & 1 Pending Validasi Mitra)
         $approvedVenue = Venue::query()->firstOrCreate(
             ['name' => 'SportHive Arena Pasteur', 'owner_id' => $venueOwner->id],
             [
@@ -105,7 +98,7 @@ class SuperAdminSeeder extends Seeder
             [
                 'city' => 'Bandung',
                 'address' => 'Jl. Surya Sumantri No. 45, Sukajadi, Bandung',
-                'description' => 'Pengajuan mitra baru: 2 lapangan Futsal dan 4 lapangan Badminton (Menunggu verifikasi berkas legalitas).',
+                'description' => 'Pengajuan mitra baru: 2 lapangan Futsal dan 4 lapangan Badminton.',
                 'validation_status' => 'PENDING',
             ]
         );
@@ -124,7 +117,6 @@ class SuperAdminSeeder extends Seeder
             );
         }
 
-        // 5. Sample Laporan & Feedback
         if (Report::query()->count() === 0) {
             Report::query()->create([
                 'reporter_id' => $player->id,
@@ -136,7 +128,6 @@ class SuperAdminSeeder extends Seeder
             ]);
         }
 
-        // 6. Sample Log Aktivitas Sistem
         if (ActivityLog::query()->count() === 0) {
             ActivityLog::recordLog(
                 $superAdmin->id,

@@ -14,9 +14,6 @@ use Illuminate\View\View;
 
 class VenueController extends Controller
 {
-    /**
-     * Menampilkan daftar Venue & Pengajuan Validasi Mitra.
-     */
     public function index(Request $request): View
     {
         $query = Venue::query()->with(['owner', 'validator', 'courts.sport']);
@@ -59,9 +56,6 @@ class VenueController extends Controller
         ]);
     }
 
-    /**
-     * Tambah Venue baru oleh Super Admin.
-     */
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
@@ -100,9 +94,6 @@ class VenueController extends Controller
             ->with('success', "Venue {$venue->name} berhasil ditambahkan.");
     }
 
-    /**
-     * Update data Venue.
-     */
     public function update(Request $request, Venue $venue): RedirectResponse
     {
         $validated = $request->validate([
@@ -128,9 +119,6 @@ class VenueController extends Controller
             ->with('success', "Data venue {$venue->name} berhasil diperbarui.");
     }
 
-    /**
-     * Setujui Pendaftaran Mitra Venue (Approve) sesuai Activity Diagram Validasi Mitra.
-     */
     public function approve(Request $request, Venue $venue): RedirectResponse
     {
         $venue->verifyVenue('APPROVED', $request->user()->id);
@@ -156,9 +144,6 @@ class VenueController extends Controller
             ->with('success', "Pengajuan mitra untuk venue {$venue->name} telah disetujui (APPROVED). Notifikasi telah dikirim ke pemilik venue.");
     }
 
-    /**
-     * Tolak Pendaftaran Mitra Venue dengan Catatan (Reject) sesuai Activity Diagram Validasi Mitra.
-     */
     public function reject(Request $request, Venue $venue): RedirectResponse
     {
         $validated = $request->validate([
@@ -193,9 +178,6 @@ class VenueController extends Controller
             ->with('success', "Pengajuan mitra untuk venue {$venue->name} telah ditolak (REJECTED) beserta catatan evaluasi.");
     }
 
-    /**
-     * Hapus Venue.
-     */
     public function destroy(Request $request, Venue $venue): RedirectResponse
     {
         $name = $venue->name;
@@ -213,4 +195,3 @@ class VenueController extends Controller
             ->with('success', "Venue {$name} berhasil dihapus.");
     }
 }
-

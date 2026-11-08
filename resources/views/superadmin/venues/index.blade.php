@@ -183,7 +183,6 @@
         @endif
     </div>
 
-    <!-- Modal Tolak Pendaftaran Mitra dengan Catatan (Sesuai Activity Diagram) -->
     <div id="modalRejectVenue" class="modal-backdrop">
         <div class="modal-card">
             <div class="modal-header">
