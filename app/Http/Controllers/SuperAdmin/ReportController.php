@@ -14,9 +14,6 @@ use Illuminate\View\View;
 
 class ReportController extends Controller
 {
-    /**
-     * Menampilkan daftar Laporan & Feedback (Use Case: Handle Laporan & Feedback).
-     */
     public function index(Request $request): View
     {
         $query = Report::query()->with(['reporter', 'handler']);
@@ -59,9 +56,6 @@ class ReportController extends Controller
         ]);
     }
 
-    /**
-     * Memperbarui status penanganan Laporan & Feedback oleh Super Admin.
-     */
     public function updateStatus(Request $request, Report $report): RedirectResponse
     {
         $validated = $request->validate([
@@ -115,9 +109,6 @@ class ReportController extends Controller
             ->with('success', "Status Laporan #{$report->id} berhasil diperbarui menjadi {$report->status}.");
     }
 
-    /**
-     * Hapus data laporan.
-     */
     public function destroy(Request $request, Report $report): RedirectResponse
     {
         $id = $report->id;
@@ -135,4 +126,3 @@ class ReportController extends Controller
             ->with('success', "Laporan #{$id} berhasil dihapus.");
     }
 }
-

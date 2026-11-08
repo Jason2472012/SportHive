@@ -13,9 +13,6 @@ use Illuminate\View\View;
 
 class SportController extends Controller
 {
-    /**
-     * Menampilkan daftar Master Data Olahraga beserta daftar Skill Level per cabang olahraga.
-     */
     public function index(Request $request): View
     {
         $query = Sport::query()
@@ -50,9 +47,6 @@ class SportController extends Controller
         ]);
     }
 
-    /**
-     * Tambah Cabang Olahraga baru (+ opsional buat Skill Level default Beginner/Intermediate/Advanced).
-     */
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
@@ -94,9 +88,6 @@ class SportController extends Controller
             ->with('success', "Cabang olahraga {$sport->name} berhasil ditambahkan.");
     }
 
-    /**
-     * Update data Cabang Olahraga.
-     */
     public function update(Request $request, Sport $sport): RedirectResponse
     {
         $validated = $request->validate([
@@ -121,9 +112,6 @@ class SportController extends Controller
             ->with('success', "Cabang olahraga {$sport->name} berhasil diperbarui.");
     }
 
-    /**
-     * Toggle status aktif/nonaktif Cabang Olahraga.
-     */
     public function toggleStatus(Request $request, Sport $sport): RedirectResponse
     {
         $sport->setActiveStatus(! $sport->is_active);
@@ -142,9 +130,6 @@ class SportController extends Controller
             ->with('success', "Cabang olahraga {$sport->name} berhasil {$statusLabel}.");
     }
 
-    /**
-     * Hapus Cabang Olahraga.
-     */
     public function destroy(Request $request, Sport $sport): RedirectResponse
     {
         if ($sport->courts()->exists()) {
@@ -168,9 +153,6 @@ class SportController extends Controller
             ->with('success', "Cabang olahraga {$name} berhasil dihapus.");
     }
 
-    /**
-     * Tambah Skill Level pada suatu Cabang Olahraga (Use Case: Kelola Daftar Skill Level).
-     */
     public function storeSkillLevel(Request $request, Sport $sport): RedirectResponse
     {
         $validated = $request->validate([
@@ -201,9 +183,6 @@ class SportController extends Controller
             ->with('success', "Skill level '{$skill->name}' untuk {$sport->name} berhasil ditambahkan.");
     }
 
-    /**
-     * Update Skill Level.
-     */
     public function updateSkillLevel(Request $request, SportSkillLevel $skillLevel): RedirectResponse
     {
         $validated = $request->validate([
@@ -235,9 +214,6 @@ class SportController extends Controller
             ->with('success', "Skill level '{$skillLevel->name}' berhasil diperbarui.");
     }
 
-    /**
-     * Hapus Skill Level.
-     */
     public function destroySkillLevel(Request $request, SportSkillLevel $skillLevel): RedirectResponse
     {
         $name = $skillLevel->name;
@@ -256,4 +232,3 @@ class SportController extends Controller
             ->with('success', "Skill level '{$name}' berhasil dihapus.");
     }
 }
-

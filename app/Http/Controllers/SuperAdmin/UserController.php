@@ -14,9 +14,6 @@ use Illuminate\View\View;
 
 class UserController extends Controller
 {
-    /**
-     * Lihat Daftar User (beserta filter role, status, dan pencarian).
-     */
     public function index(Request $request): View
     {
         $query = User::query()->with('venues');
@@ -58,9 +55,6 @@ class UserController extends Controller
         ]);
     }
 
-    /**
-     * Tambah User baru oleh Super Admin.
-     */
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
@@ -101,9 +95,6 @@ class UserController extends Controller
             ->with('success', "Pengguna {$user->name} berhasil ditambahkan.");
     }
 
-    /**
-     * Update data User oleh Super Admin.
-     */
     public function update(Request $request, User $user): RedirectResponse
     {
         $validated = $request->validate([
@@ -140,9 +131,6 @@ class UserController extends Controller
             ->with('success', "Data pengguna {$user->name} berhasil diperbarui.");
     }
 
-    /**
-     * Suspend / Aktifkan kembali akun User (sesuai Use Case & Activity Diagram).
-     */
     public function toggleSuspend(Request $request, User $user): RedirectResponse
     {
         if ($user->id === $request->user()->id) {
@@ -180,9 +168,6 @@ class UserController extends Controller
             ->with('success', "Akun {$user->name} berhasil {$statusLabel}.");
     }
 
-    /**
-     * Hapus User.
-     */
     public function destroy(Request $request, User $user): RedirectResponse
     {
         if ($user->id === $request->user()->id) {
@@ -213,4 +198,3 @@ class UserController extends Controller
             ->with('success', "Pengguna {$name} berhasil dihapus.");
     }
 }
-

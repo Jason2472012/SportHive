@@ -63,7 +63,6 @@
         </div>
     </div>
 
-    <!-- Monitoring Open Room Aktif (Sesuai Activity Diagram: Memantau Log Aktivitas & Open Room Aktif) -->
     <div class="panel">
         <div class="panel-header">
             <h3>Monitoring Open Room Matchmaking Aktif</h3>

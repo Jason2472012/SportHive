@@ -15,9 +15,6 @@ use Illuminate\View\View;
 
 class ActivityLogController extends Controller
 {
-    /**
-     * Pantau Statistik & Log Aktivitas (serta Open Room Aktif sesuai Activity Diagram).
-     */
     public function index(Request $request): View
     {
         $query = ActivityLog::query()->with('user');
@@ -79,4 +76,3 @@ class ActivityLogController extends Controller
         ]);
     }
 }
-
