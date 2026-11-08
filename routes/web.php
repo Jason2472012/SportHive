@@ -8,6 +8,11 @@ use App\Http\Controllers\SuperAdmin\ReportController as SuperAdminReportControll
 use App\Http\Controllers\SuperAdmin\SportController as SuperAdminSportController;
 use App\Http\Controllers\SuperAdmin\UserController as SuperAdminUserController;
 use App\Http\Controllers\SuperAdmin\VenueController as SuperAdminVenueController;
+use App\Http\Controllers\VenueOwner\BookingController as VenueOwnerBookingController;
+use App\Http\Controllers\VenueOwner\CourtController as VenueOwnerCourtController;
+use App\Http\Controllers\VenueOwner\DashboardController as VenueOwnerDashboardController;
+use App\Http\Controllers\VenueOwner\TimeSlotController as VenueOwnerTimeSlotController;
+use App\Http\Controllers\VenueOwner\VenueProfileController as VenueOwnerVenueProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home');
@@ -28,6 +33,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         if (auth()->user()->role === 'SUPER_ADMIN') {
             return redirect()->route('superadmin.dashboard');
+        }
+
+        if (auth()->user()->role === 'VENUE_OWNER') {
+            return redirect()->route('venueowner.dashboard');
         }
 
         return view('dashboard');
@@ -72,6 +81,47 @@ Route::middleware('auth')->group(function () {
 
             // 5. Pantau Statistik & Log Aktivitas
             Route::get('/logs', [SuperAdminActivityLogController::class, 'index'])->name('logs.index');
+        });
+
+    Route::prefix('venueowner')
+        ->name('venueowner.')
+        ->middleware('venueowner')
+        ->group(function () {
+            // Dashboard Operasional Pengelola Arena
+            Route::get('/dashboard', [VenueOwnerDashboardController::class, 'index'])->name('dashboard');
+
+            // 1. Mengelola Profil Venue (Nama arena, alamat, foto fasilitas, kota, deskripsi)
+            Route::get('/venues', [VenueOwnerVenueProfileController::class, 'index'])->name('venues.index');
+            Route::get('/venues/create', [VenueOwnerVenueProfileController::class, 'create'])->name('venues.create');
+            Route::post('/venues', [VenueOwnerVenueProfileController::class, 'store'])->name('venues.store');
+            Route::get('/venues/{venue}', [VenueOwnerVenueProfileController::class, 'show'])->name('venues.show');
+            Route::get('/venues/{venue}/edit', [VenueOwnerVenueProfileController::class, 'edit'])->name('venues.edit');
+            Route::put('/venues/{venue}', [VenueOwnerVenueProfileController::class, 'update'])->name('venues.update');
+
+            // 2. Mengelola Lapangan & Jenis Olahraga
+            Route::get('/courts', [VenueOwnerCourtController::class, 'index'])->name('courts.index');
+            Route::get('/courts/create', [VenueOwnerCourtController::class, 'create'])->name('courts.create');
+            Route::post('/courts', [VenueOwnerCourtController::class, 'store'])->name('courts.store');
+            Route::get('/courts/{court}/edit', [VenueOwnerCourtController::class, 'edit'])->name('courts.edit');
+            Route::put('/courts/{court}', [VenueOwnerCourtController::class, 'update'])->name('courts.update');
+            Route::patch('/courts/{court}/toggle-status', [VenueOwnerCourtController::class, 'toggleStatus'])->name('courts.toggle-status');
+            Route::delete('/courts/{court}', [VenueOwnerCourtController::class, 'destroy'])->name('courts.destroy');
+
+            // 3. Mengatur Slot Ketersediaan Waktu (Time Slot) & Harga Sewa Real-Time
+            Route::get('/slots', [VenueOwnerTimeSlotController::class, 'index'])->name('slots.index');
+            Route::get('/slots/create', [VenueOwnerTimeSlotController::class, 'create'])->name('slots.create');
+            Route::post('/slots', [VenueOwnerTimeSlotController::class, 'store'])->name('slots.store');
+            Route::post('/slots/bulk', [VenueOwnerTimeSlotController::class, 'storeBulk'])->name('slots.bulk');
+            Route::put('/slots/{slot}', [VenueOwnerTimeSlotController::class, 'update'])->name('slots.update');
+            Route::patch('/slots/{slot}/toggle-status', [VenueOwnerTimeSlotController::class, 'toggleStatus'])->name('slots.toggle-status');
+            Route::delete('/slots/{slot}', [VenueOwnerTimeSlotController::class, 'destroy'])->name('slots.destroy');
+
+            // 4. Memantau Daftar Reservasi Masuk & Operasional Lapangan (Check-in E-Ticket)
+            Route::get('/bookings', [VenueOwnerBookingController::class, 'index'])->name('bookings.index');
+            Route::get('/bookings/{booking}', [VenueOwnerBookingController::class, 'show'])->name('bookings.show');
+            Route::patch('/bookings/{booking}/check-in', [VenueOwnerBookingController::class, 'checkIn'])->name('bookings.check-in');
+            Route::patch('/bookings/{booking}/confirm-payment', [VenueOwnerBookingController::class, 'confirmPayment'])->name('bookings.confirm-payment');
+            Route::patch('/bookings/{booking}/cancel', [VenueOwnerBookingController::class, 'cancel'])->name('bookings.cancel');
         });
 
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
