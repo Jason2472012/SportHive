@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\SuperAdmin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Report;
+use App\Models\Sport;
 use App\Models\User;
+use App\Models\Venue;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\View\View;
 
@@ -18,9 +20,9 @@ class DashboardController extends Controller
     {
         $stats = [
             'total_users' => User::count(),
-            'total_venues' => Schema::hasTable('venues') ? DB::table('venues')->count() : 0,
-            'total_sports' => Schema::hasTable('sports') ? DB::table('sports')->count() : 0,
-            'total_reports' => Schema::hasTable('reports') ? DB::table('reports')->count() : 0,
+            'total_venues' => Schema::hasTable('venues') ? Venue::count() : 0,
+            'total_sports' => Schema::hasTable('sports') ? Sport::count() : 0,
+            'total_reports' => Schema::hasTable('reports') ? Report::count() : 0,
         ];
 
         $recentUsers = User::latest('created_at')->take(5)->get();
