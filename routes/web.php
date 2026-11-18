@@ -11,6 +11,7 @@ use App\Http\Controllers\SuperAdmin\VenueController as SuperAdminVenueController
 use App\Http\Controllers\VenueOwner\BookingController as VenueOwnerBookingController;
 use App\Http\Controllers\VenueOwner\CourtController as VenueOwnerCourtController;
 use App\Http\Controllers\VenueOwner\DashboardController as VenueOwnerDashboardController;
+use App\Http\Controllers\VenueOwner\RecapController as VenueOwnerRecapController;
 use App\Http\Controllers\VenueOwner\TimeSlotController as VenueOwnerTimeSlotController;
 use App\Http\Controllers\VenueOwner\VenueProfileController as VenueOwnerVenueProfileController;
 use Illuminate\Support\Facades\Route;
@@ -117,6 +118,9 @@ Route::middleware('auth')->group(function () {
             Route::patch('/bookings/{booking}/check-in', [VenueOwnerBookingController::class, 'checkIn'])->name('bookings.check-in');
             Route::patch('/bookings/{booking}/confirm-payment', [VenueOwnerBookingController::class, 'confirmPayment'])->name('bookings.confirm-payment');
             Route::patch('/bookings/{booking}/cancel', [VenueOwnerBookingController::class, 'cancel'])->name('bookings.cancel');
+
+            // 5. Rekapitulasi Pendapatan & Pelanggan (Per Venue & Gabungan)
+            Route::get('/recap', [VenueOwnerRecapController::class, 'index'])->name('recap.index');
         });
 
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');

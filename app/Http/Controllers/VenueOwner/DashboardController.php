@@ -52,12 +52,6 @@ class DashboardController extends Controller
                 ->whereDate('start_at', $today)
                 ->where('status', 'BOOKED')
                 ->count(),
-            'total_revenue' => (float) Booking::query()
-                ->whereHas('slot', function ($q) use ($courtIds) {
-                    $q->whereIn('court_id', $courtIds);
-                })
-                ->whereIn('status', ['PAID', 'COMPLETED'])
-                ->sum('total_price'),
         ];
 
         // 2. Daftar Reservasi Masuk Hari Ini (Prioritas Operasional Lapangan)
