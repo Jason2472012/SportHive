@@ -94,7 +94,7 @@
 
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
     <div>
-        <h2 style="font-size: 1.3rem; font-weight: 800;">🏢 Arena & Fasilitas Olahraga Saya</h2>
+        <h2 style="font-size: 1.3rem; font-weight: 800;"> Arena & Fasilitas Olahraga Saya</h2>
         <p style="font-size: 0.85rem; color: var(--text-muted);">Kelola profil, foto fasilitas, alamat, dan legalitas arena yang Anda miliki</p>
     </div>
     <a href="{{ route('venueowner.venues.create') }}" class="btn btn-primary">
@@ -118,11 +118,11 @@
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
                     <h3 class="venue-title">{{ $venue->name }}</h3>
                     @if($venue->validation_status === 'APPROVED')
-                        <span class="badge-pill badge-success">✓ APPROVED</span>
+                        <span class="badge-pill badge-success"> APPROVED</span>
                     @elseif($venue->validation_status === 'PENDING')
-                        <span class="badge-pill badge-warning">⏳ PENDING</span>
+                        <span class="badge-pill badge-warning"> PENDING</span>
                     @else
-                        <span class="badge-pill badge-danger">✕ REJECTED</span>
+                        <span class="badge-pill badge-danger"> REJECTED</span>
                     @endif
                 </div>
 
@@ -134,7 +134,7 @@
                 <!-- Cabang Olahraga Tersedia -->
                 <div class="sports-tag-list">
                     @forelse($venue->courts->pluck('sport.name')->filter()->unique() as $sportName)
-                        <span class="sport-tag">⚽ {{ $sportName }}</span>
+                        <span class="sport-tag"> {{ $sportName }}</span>
                     @empty
                         <span style="font-size: 0.75rem; color: var(--text-muted);">Belum ada lapangan ditambahkan</span>
                     @endforelse

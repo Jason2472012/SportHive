@@ -54,17 +54,17 @@
     <!-- Tab navigation -->
     <div class="tabs-nav">
         <button type="button" class="tab-btn active" id="btn-tab-bulk" onclick="switchTab('bulk')">
-            ⚡ Generator Massal Harian (Direkomendasikan)
+             Generator Massal Harian (Direkomendasikan)
         </button>
         <button type="button" class="tab-btn" id="btn-tab-single" onclick="switchTab('single')">
-            ➕ Tambah Slot Tunggal
+             Tambah Slot Tunggal
         </button>
     </div>
 
     <!-- FORM 1: Generator Massal (Bulk) -->
     <div id="tab-bulk" class="card">
         <div style="margin-bottom: 16px; padding: 12px 16px; background-color: #ecfdf5; border-radius: 8px; border: 1px solid #a7f3d0; font-size: 0.82rem; color: #065f46;">
-            💡 <strong>Generator Slot Cepat:</strong> Masukkan jam buka dan jam tutup arena Anda (misal 08:00 - 22:00) dengan durasi 60 menit per slot. Sistem secara otomatis akan membagi dan membuat seluruh slot waktu harian tanpa perlu input manual satu per satu!
+             <strong>Generator Slot Cepat:</strong> Masukkan jam buka dan jam tutup arena Anda (misal 08:00 - 22:00) dengan durasi 60 menit per slot. Sistem secara otomatis akan membagi dan membuat seluruh slot waktu harian tanpa perlu input manual satu per satu!
         </div>
 
         <form method="POST" action="{{ route('venueowner.slots.bulk') }}">
@@ -123,7 +123,7 @@
 
             <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 16px;">
                 <a href="{{ route('venueowner.slots.index', ['court_id' => $selected_court_id, 'date' => $selected_date]) }}" class="btn btn-secondary">Batal</a>
-                <button type="submit" class="btn btn-primary">⚡ Generate Slot Waktu Sekarang</button>
+                <button type="submit" class="btn btn-primary"> Generate Slot Waktu Sekarang</button>
             </div>
         </form>
     </div>

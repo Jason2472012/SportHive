@@ -47,7 +47,7 @@
                     <option value="">-- Pilih Cabang Olahraga --</option>
                     @foreach($sports as $sport)
                         <option value="{{ $sport->id }}" {{ old('sport_id') == $sport->id ? 'selected' : '' }}>
-                            ⚽ {{ $sport->name }}
+                             {{ $sport->name }}
                         </option>
                     @endforeach
                 </select>

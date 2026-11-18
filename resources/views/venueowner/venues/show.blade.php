@@ -72,11 +72,11 @@
         <div>
             <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
                 @if($venue->validation_status === 'APPROVED')
-                    <span class="badge-pill badge-success">✓ STATUS: APPROVED (Resmi Beroperasi)</span>
+                    <span class="badge-pill badge-success"> STATUS: APPROVED (Resmi Beroperasi)</span>
                 @elseif($venue->validation_status === 'PENDING')
-                    <span class="badge-pill badge-warning">⏳ STATUS: MENUNGGU VERIFIKASI SUPER ADMIN</span>
+                    <span class="badge-pill badge-warning"> STATUS: MENUNGGU VERIFIKASI SUPER ADMIN</span>
                 @else
-                    <span class="badge-pill badge-danger">✕ STATUS: REJECTED</span>
+                    <span class="badge-pill badge-danger"> STATUS: REJECTED</span>
                 @endif
             </div>
 
@@ -119,7 +119,7 @@
                     <tr style="border-bottom: 1px solid var(--border-color);">
                         <td style="padding: 14px 16px; font-weight: 700;">{{ $court->name }}</td>
                         <td style="padding: 14px 16px;">
-                            <span class="badge-pill badge-info">⚽ {{ $court->sport->name ?? '-' }}</span>
+                            <span class="badge-pill badge-info"> {{ $court->sport->name ?? '-' }}</span>
                         </td>
                         <td style="padding: 14px 16px;">
                             @if($court->is_active)

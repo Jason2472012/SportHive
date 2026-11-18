@@ -39,7 +39,7 @@
 
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
     <div>
-        <h2 style="font-size: 1.3rem; font-weight: 800;">📋 Pemantauan Reservasi Masuk & Operasional</h2>
+        <h2 style="font-size: 1.3rem; font-weight: 800;"> Pemantauan Reservasi Masuk & Operasional</h2>
         <p style="font-size: 0.85rem; color: var(--text-muted);">Validasi tiket masuk pemain, kelola pembayaran di lokasi, dan pantau status pemesanan</p>
     </div>
 </div>
@@ -135,8 +135,8 @@
                         <td style="padding: 14px 16px;">
                             <div style="font-weight: 700;">{{ $booking->slot->court->name ?? '-' }}</div>
                             <div style="font-size: 0.78rem; color: var(--text-muted);">
-                                📅 {{ $booking->slot->start_at->format('d M Y') }}
-                                ⏱ {{ $booking->slot->start_at->format('H:i') }} - {{ $booking->slot->end_at->format('H:i') }} WIB
+                                 {{ $booking->slot->start_at->format('d M Y') }}
+                                 {{ $booking->slot->start_at->format('H:i') }} - {{ $booking->slot->end_at->format('H:i') }} WIB
                             </div>
                         </td>
                         <td style="padding: 14px 16px; font-weight: 700;">
@@ -144,7 +144,7 @@
                         </td>
                         <td style="padding: 14px 16px;">
                             @if($booking->status === 'COMPLETED')
-                                <span class="badge-pill badge-info">✓ CHECKED-IN</span>
+                                <span class="badge-pill badge-info"> CHECKED-IN</span>
                             @elseif($booking->status === 'PAID')
                                 <span class="badge-pill badge-success">LUNAS</span>
                             @elseif($booking->status === 'PENDING')
@@ -162,7 +162,7 @@
                                         @csrf
                                         @method('PATCH')
                                         <button type="submit" class="btn btn-primary btn-sm" onclick="return confirm('Validasi kehadiran pemain dengan kode tiket ini?')">
-                                            ✓ Check-In
+                                             Check-In
                                         </button>
                                     </form>
                                 @elseif($booking->status === 'PENDING')

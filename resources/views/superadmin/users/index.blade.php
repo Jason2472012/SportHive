@@ -132,7 +132,7 @@
                             </td>
                             <td>
                                 @if($user->rating_count > 0)
-                                    <strong>★ {{ number_format((float) $user->rating_avg, 2) }}</strong>
+                                    <strong> {{ number_format((float) $user->rating_avg, 2) }}</strong>
                                     <span style="font-size: 0.75rem; color: var(--text-muted);">({{ $user->rating_count }} ulasan)</span>
                                 @else
                                     <span style="color: var(--text-muted); font-size: 0.78rem;">Belum ada rating</span>

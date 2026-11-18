@@ -7,7 +7,7 @@
 
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
     <div>
-        <h2 style="font-size: 1.3rem; font-weight: 800;">🏸 Lapangan & Cabang Olahraga</h2>
+        <h2 style="font-size: 1.3rem; font-weight: 800;"> Lapangan & Cabang Olahraga</h2>
         <p style="font-size: 0.85rem; color: var(--text-muted);">Atur sarana lapangan pada setiap arena, jenis cabang olahraga, dan status operasional</p>
     </div>
     <a href="{{ route('venueowner.courts.create') }}" class="btn btn-primary">
@@ -72,7 +72,7 @@
                             <div style="font-size: 0.75rem; color: var(--text-muted);">{{ $court->venue->city ?? '-' }}</div>
                         </td>
                         <td style="padding: 14px 16px;">
-                            <span class="badge-pill badge-info">⚽ {{ $court->sport->name ?? '-' }}</span>
+                            <span class="badge-pill badge-info"> {{ $court->sport->name ?? '-' }}</span>
                         </td>
                         <td style="padding: 14px 16px;">
                             @if($court->is_active)

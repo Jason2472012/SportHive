@@ -85,7 +85,7 @@
 
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
     <div>
-        <h2 style="font-size: 1.3rem; font-weight: 800;">⏱ Pengaturan Slot Waktu & Tarif Lapangan</h2>
+        <h2 style="font-size: 1.3rem; font-weight: 800;"> Pengaturan Slot Waktu & Tarif Lapangan</h2>
         <p style="font-size: 0.85rem; color: var(--text-muted);">Buka, tutup, ubah harga, atau nonaktifkan jadwal lapangan secara real-time</p>
     </div>
     <div style="display: flex; gap: 10px;">
@@ -242,7 +242,7 @@
     </div>
 @else
     <div class="card" style="text-align: center; padding: 48px;">
-        <div style="font-size: 2.5rem; margin-bottom: 12px;">📅</div>
+        <div style="font-size: 2.5rem; margin-bottom: 12px;"></div>
         <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">Belum Ada Slot Waktu untuk Tanggal Ini</h3>
         <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
             Gunakan Generator Slot Massal untuk membuat jadwal slot otomatis per jam sekaligus dari jam buka hingga jam tutup.

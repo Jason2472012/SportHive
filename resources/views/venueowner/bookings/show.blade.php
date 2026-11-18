@@ -91,19 +91,19 @@
             <div>
                 @if($booking->status === 'COMPLETED')
                     <span style="background: rgba(255,255,255,0.25); color: #ffffff; padding: 6px 14px; border-radius: 9999px; font-weight: 700; font-size: 0.85rem;">
-                        ✓ CHECKED-IN (SELESAI)
+                         CHECKED-IN (SELESAI)
                     </span>
                 @elseif($booking->status === 'PAID')
                     <span style="background: #ffffff; color: #065f46; padding: 6px 14px; border-radius: 9999px; font-weight: 700; font-size: 0.85rem;">
-                        ✓ LUNAS (SIAP MAIN)
+                         LUNAS (SIAP MAIN)
                     </span>
                 @elseif($booking->status === 'PENDING')
                     <span style="background: #fef3c7; color: #92400e; padding: 6px 14px; border-radius: 9999px; font-weight: 700; font-size: 0.85rem;">
-                        ⏳ MENUNGGU BAYAR
+                         MENUNGGU BAYAR
                     </span>
                 @else
                     <span style="background: #fee2e2; color: #991b1b; padding: 6px 14px; border-radius: 9999px; font-weight: 700; font-size: 0.85rem;">
-                        ✕ BATAL
+                         BATAL
                     </span>
                 @endif
             </div>
@@ -132,7 +132,7 @@
                     <div class="ticket-info-group">
                         <div class="ticket-label">Lapangan & Cabor</div>
                         <div class="ticket-val">{{ $booking->slot->court->name ?? '-' }}</div>
-                        <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">⚽ {{ $booking->slot->court->sport->name ?? '-' }}</div>
+                        <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;"> {{ $booking->slot->court->sport->name ?? '-' }}</div>
                     </div>
 
                     <div class="ticket-info-group">
@@ -185,7 +185,7 @@
                             @csrf
                             @method('PATCH')
                             <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="return confirm('Konfirmasi check-in pemain di lapangan sekarang?')">
-                                ✓ Lakukan Check-In
+                                 Lakukan Check-In
                             </button>
                         </form>
                     @elseif($booking->status === 'PENDING')

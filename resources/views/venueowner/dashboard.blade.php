@@ -166,7 +166,7 @@
 @if($stats['pending_venues'] > 0)
     <div class="banner-pending">
         <div>
-            <div class="banner-pending-title">⏳ Menunggu Verifikasi Super Admin</div>
+            <div class="banner-pending-title"> Menunggu Verifikasi Super Admin</div>
             <div class="banner-pending-desc">
                 Anda memiliki {{ $stats['pending_venues'] }} arena yang masih dalam proses peninjauan berkas legalitas dan survei oleh tim Super Admin SportHive. Lapangan akan dapat dipesan publik setelah status menjadi APPROVED.
             </div>
@@ -228,7 +228,7 @@
     <div class="card" style="margin-bottom: 0;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
             <div>
-                <h2 style="font-size: 1.1rem; font-weight: 700;">📋 Reservasi Masuk Hari Ini</h2>
+                <h2 style="font-size: 1.1rem; font-weight: 700;"> Reservasi Masuk Hari Ini</h2>
                 <p style="font-size: 0.8rem; color: var(--text-muted);">Pantau kedatangan pemain dan verifikasi tiket di lapangan</p>
             </div>
             <a href="{{ route('venueowner.bookings.index') }}" class="btn btn-secondary btn-sm">Lihat Semua</a>
@@ -267,7 +267,7 @@
                             </td>
                             <td>
                                 @if($booking->status === 'COMPLETED')
-                                    <span class="badge-pill badge-info">✓ CHECKED-IN</span>
+                                    <span class="badge-pill badge-info"> CHECKED-IN</span>
                                 @elseif($booking->status === 'PAID')
                                     <span class="badge-pill badge-success">LUNAS</span>
                                 @elseif($booking->status === 'PENDING')
@@ -310,7 +310,7 @@
     <!-- Right: Quick Actions & Slot Monitor -->
     <div>
         <div class="card" style="margin-bottom: 24px;">
-            <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 14px;">⚡ Aksi Cepat Operasional</h3>
+            <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 14px;"> Aksi Cepat Operasional</h3>
             <div style="display: flex; flex-direction: column; gap: 10px;">
                 <a href="{{ route('venueowner.slots.create') }}" class="btn btn-primary" style="justify-content: center;">
                     <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
@@ -329,7 +329,7 @@
 
         <div class="card">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <h3 style="font-size: 0.95rem; font-weight: 700;">⏱ Pemantauan Slot Hari Ini</h3>
+                <h3 style="font-size: 0.95rem; font-weight: 700;"> Pemantauan Slot Hari Ini</h3>
                 <a href="{{ route('venueowner.slots.index') }}" style="font-size: 0.78rem; color: var(--primary); font-weight: 600; text-decoration: none;">Semua Slot</a>
             </div>
 
